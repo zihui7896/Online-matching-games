@@ -17,7 +17,7 @@ public class MatchingPool extends Thread{
     private final ReentrantLock lock = new ReentrantLock();
 
     private static RestTemplate restTemplate;
-    private final static String startGameUrl = "http://127.0.0.1:3000/pk/start/game/";
+    private final static String startGameUrl = "http://127.0.0.1:3000/kob/pk/start/game/";
     @Autowired
     public void setRestTemplate(RestTemplate restTemplate) {
         MatchingPool.restTemplate = restTemplate;
@@ -26,6 +26,7 @@ public class MatchingPool extends Thread{
         lock.lock();
         try {
             players.add(new Player(userId, rating, botId, 0));
+            System.out.println(userId + " " + rating + " " + botId + " ");
         } finally {
             lock.unlock();
         }
@@ -40,6 +41,8 @@ public class MatchingPool extends Thread{
                 }
             }
             players = newPlayers;
+            for (Player player : players) System.out.print(player.getUserId() + " " + player.getRating());
+            System.out.println();
         } finally {
             lock.unlock();
         }

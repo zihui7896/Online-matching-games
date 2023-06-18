@@ -38,8 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/user/account/token/", "/user/account/register/").permitAll()
-                .antMatchers("/pk/start/game/", "/pk/receive/bot/move/").hasIpAddress("127.0.0.1")
+                .antMatchers("/kob/user/account/token/", "/kob/user/account/register/").permitAll()
+                .antMatchers("/kob/pk/start/game/", "/kob/pk/receive/bot/move/").hasIpAddress("127.0.0.1")
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated();
 
@@ -48,6 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/websocket/**");
+        web.ignoring().antMatchers("/kob/websocket/**");
     }
 }

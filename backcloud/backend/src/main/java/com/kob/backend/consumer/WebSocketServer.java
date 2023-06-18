@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@ServerEndpoint("/websocket/{token}")  // 注意不要以'/'结尾
+@ServerEndpoint("/kob/websocket/{token}")  // 注意不要以'/'结尾
 public class WebSocketServer {
 
     final public static ConcurrentHashMap<Integer, WebSocketServer> users = new ConcurrentHashMap<>();
@@ -33,8 +33,8 @@ public class WebSocketServer {
     private static BotMapper botMapper;
     public static RestTemplate restTemplate;
     public Game game = null;
-    private final static String addPlaysUrl = "http://127.0.0.1:3001/player/add/";
-    private final static String removePlaysUrl = "http://127.0.0.1:3001/player/remove/";
+    private final static String addPlaysUrl = "http://127.0.0.1:3001/kob/player/add/";
+    private final static String removePlaysUrl = "http://127.0.0.1:3001/kob/player/remove/";
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
         WebSocketServer.userMapper = userMapper;

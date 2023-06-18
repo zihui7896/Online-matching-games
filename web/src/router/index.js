@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 import PkIndexView from '@/views/pk/PkIndexView'
+import PkIndexViewAl from '@/views/pk/PkIndexViewAl'
 import NotFound from '@/views/error/NotFound'
 import RanklistIndexView from '@/views/ranklist/RanklistIndexView'
 import RecordContentView from '@/views/record/RecordContentView'
@@ -12,15 +13,23 @@ import store from '@/store/index'
 
 const routes = [
     {
-        path: "/",
+        path: "/kob/",
         name: "home",
-        redirect: "/pk/",
+        redirect: "/kob/pk/",
         meta: {
             requestAuth: true,
         }
     },
     {
-        path: "/pk/",
+        path: "/kob/pk/al",
+        name: "pk_index_al",
+        component: PkIndexViewAl,
+        meta: {
+            requestAuth: true,
+        }
+    },
+    {
+        path: "/kob/pk/",
         name: "pk_index",
         component: PkIndexView,
         meta: {
@@ -28,7 +37,7 @@ const routes = [
         }
     },
     {
-        path: "/record/",
+        path: "/kob/record/",
         name: "record_index",
         component: RecordIndexView,
         meta: {
@@ -36,7 +45,7 @@ const routes = [
         }
     },
     {
-        path: "/record/:recordId/",
+        path: "/kob/record/:recordId/",
         name: "record_content",
         component: RecordContentView,
         meta: {
@@ -44,7 +53,7 @@ const routes = [
         }
     },
     {
-        path: "/ranklist/",
+        path: "/kob/ranklist/",
         name: "ranklist_index",
         component: RanklistIndexView,
         meta: {
@@ -53,7 +62,7 @@ const routes = [
 
     },
     {
-        path: "/user/bot/",
+        path: "/kob/user/bot/",
         name: "user_bot_index",
         component: UserBotIndexView,
         meta: {
@@ -61,7 +70,7 @@ const routes = [
         }
     },
     {
-        path: "/user/account/login/",
+        path: "/kob/user/account/login/",
         name: "user_account_login",
         component: UserAccountLoginView,
         meta: {
@@ -69,7 +78,7 @@ const routes = [
         }
     },
     {
-        path: "/user/account/register/",
+        path: "/kob/user/account/register/",
         name: "user_account_register",
         component: UserAccountRegisterView,
         meta: {
