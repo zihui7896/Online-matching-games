@@ -1,0 +1,12 @@
+com\kob\botrunningsystem\utils\BotInterface.class
+com\kob\botrunningsystem\config\SecurityConfig.class
+com\kob\botrunningsystem\service\impl\utils\BotPool.class
+com\kob\botrunningsystem\utils\Bot$Cell.class
+com\kob\botrunningsystem\service\BotRunningService.class
+com\kob\botrunningsystem\service\impl\utils\Consumer.class
+com\kob\botrunningsystem\BotRunningSystemApplication.class
+com\kob\botrunningsystem\utils\Bot.class
+com\kob\botrunningsystem\service\impl\BotRunningServiceImpl.class
+com\kob\botrunningsystem\service\impl\utils\Bot.class
+com\kob\botrunningsystem\config\RestTemplateConfig.class
+com\kob\botrunningsystem\controller\BotRunningController.class

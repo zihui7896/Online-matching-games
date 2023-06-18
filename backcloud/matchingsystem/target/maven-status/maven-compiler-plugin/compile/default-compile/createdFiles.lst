@@ -1,0 +1,8 @@
+com\kob\matchingsystem\controller\MatchingController.class
+com\kob\matchingsystem\service\impl\MatchingServiceImpl.class
+com\kob\matchingsystem\service\impl\utils\MatchingPool.class
+com\kob\matchingsystem\config\RestTemplateConfig.class
+com\kob\matchingsystem\MatchingSystemApplication.class
+com\kob\matchingsystem\config\SecurityConfig.class
+com\kob\matchingsystem\service\impl\utils\Player.class
+com\kob\matchingsystem\service\MatchingService.class
