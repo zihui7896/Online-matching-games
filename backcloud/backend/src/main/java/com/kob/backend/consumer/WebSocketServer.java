@@ -56,7 +56,7 @@ public class WebSocketServer {
     @OnOpen
     public void onOpen(Session session, @PathParam("token") String token) throws IOException {
         this.session = session;
-        System.out.println("connected!");
+        System.out.println("connected!" + " aaaaa");
         Integer userId = JwtAuthentication.getUserId(token);
         this.user = userMapper.selectById(userId);
 

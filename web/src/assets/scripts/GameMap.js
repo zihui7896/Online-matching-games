@@ -75,6 +75,22 @@ export class GameMap extends AcGameObject {
                     }));
                 }
             });
+            this.ctx.canvas.addEventListener("keydown", e => {
+                let outer = this;
+                if (e.which === 27) {  // ESC
+                    outer.hide_input();
+                    return false;
+                } else if (e.which === 13) {  // ENTER
+                    let username = outer.playground.root.settings.username;
+                    let text = outer.$input.val();
+                    if (text) {
+                        outer.$input.val("");
+                        outer.add_message(username, text);
+                        outer.playground.mps.send_message(username, text);
+                    }
+                    return false;
+                }
+            });
         }
         
     }

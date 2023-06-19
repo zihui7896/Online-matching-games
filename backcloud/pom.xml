@@ -7,6 +7,7 @@
         <module>backend</module>
         <module>botrunningsystem</module>
         <module>matchingsystem</module>
+        <module>almatchingsystem</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

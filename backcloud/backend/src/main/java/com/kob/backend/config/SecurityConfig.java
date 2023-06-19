@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/kob/user/account/token/", "/kob/user/account/register/").permitAll()
+                .antMatchers("/kob/al/player/add/").hasIpAddress("127.0.0.1")
                 .antMatchers("/kob/pk/start/game/", "/kob/pk/receive/bot/move/").hasIpAddress("127.0.0.1")
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated();

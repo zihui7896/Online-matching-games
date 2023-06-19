@@ -13,17 +13,21 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="almatchingsystem" target="1.8" />
       <module name="backcloud" target="1.8" />
       <module name="backend" target="1.8" />
       <module name="botrunningsystem" target="1.8" />
       <module name="matchingsystem" target="1.8" />
+      <module name="matchingsystemal" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="almatchingsystem" options="-parameters" />
       <module name="backend" options="-parameters" />
       <module name="botrunningsystem" options="-parameters" />
       <module name="matchingsystem" options="-parameters" />
+      <module name="matchingsystemal" options="-parameters" />
     </option>
   </component>
 </project>

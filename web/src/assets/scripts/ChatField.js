@@ -24,10 +24,10 @@ class ChatField {
         let outer = this;
 
         this.$input.keydown(function(e) {
-            if (e.which === 27) {  // ESC
+            if (e.key === 27) {  // ESC
                 outer.hide_input();
                 return false;
-            } else if (e.which === 13) {  // ENTER
+            } else if (e.key === 13) {  // ENTER
                 let username = outer.playground.root.settings.username;
                 let text = outer.$input.val();
                 if (text) {

@@ -55,7 +55,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!--这里写上main方法所在类的路径-->
                 <configuration>
-                    <mainClass>com.kob.matchingsystem.MatchingSystemApplication</mainClass>
+                    <mainClass>com.kob.com.kobmatchingsystem.MatchingSystemApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

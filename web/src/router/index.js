@@ -13,7 +13,7 @@ import store from '@/store/index'
 
 const routes = [
     {
-        path: "/kob/",
+        path: "/pk/",
         name: "home",
         redirect: "/kob/pk/",
         meta: {

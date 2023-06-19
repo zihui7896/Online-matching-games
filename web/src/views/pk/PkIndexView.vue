@@ -4,6 +4,7 @@
     <ResultBoard v-if="$store.state.pk.loser !== 'none'" />
     <div class="user-color" v-if="$store.state.pk.status === 'playing'&&parseInt($store.state.user.id) === parseInt($store.state.pk.a_id)"> 左下角 </div>
     <div class="user-color" v-if="$store.state.pk.status === 'playing'&&parseInt($store.state.user.id) === parseInt($store.state.pk.b_id)"> 右上角 </div>
+
 </template>
 
 <script>
@@ -12,8 +13,8 @@ import MatchGround from '../../components/MatchGround.vue'
 import ResultBoard from "@/components/ResultBoard.vue"
 import { onMounted, onUnmounted } from 'vue'
 import { useStore } from 'vuex'
-
 export default {
+
     components: {
         PlayGround,
         MatchGround,
@@ -80,7 +81,8 @@ export default {
             socket.close();
             store.commit("updateStatus", "matching");
         })
-    }
+    },
+    
 }
 </script>
 
