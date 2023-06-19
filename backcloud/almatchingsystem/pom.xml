@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>matchingsystem</artifactId>
+    <artifactId>almatchingsystem</artifactId>
     <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -55,7 +55,7 @@
                 <!--这里写上main方法所在类的路径-->
 
                 <configuration>
-                    <mainClass>com.kob.matchingsystem.MatchingSystemApplication</mainClass>
+                    <mainClass>com.kob.almatchingsystem.AlMatchingSystemApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

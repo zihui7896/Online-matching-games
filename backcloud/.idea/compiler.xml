@@ -9,10 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="botrunningsystem" />
         <module name="backend" />
+        <module name="almatchingsystem" />
         <module name="matchingsystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="almatchingsystem" target="1.8" />
       <module name="backcloud" target="1.8" />
       <module name="backend" target="1.8" />
       <module name="botrunningsystem" target="1.8" />
@@ -21,6 +23,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="almatchingsystem" options="-parameters" />
       <module name="backend" options="-parameters" />
       <module name="botrunningsystem" options="-parameters" />
       <module name="matchingsystem" options="-parameters" />
