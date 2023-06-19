@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 import PkIndexView from '@/views/pk/PkIndexView'
+import AlPkIndexView from '@/views/pk/AlPkIndexView'
 import NotFound from '@/views/error/NotFound'
 import RanklistIndexView from '@/views/ranklist/RanklistIndexView'
 import RecordContentView from '@/views/record/RecordContentView'
@@ -23,6 +24,14 @@ const routes = [
         path: "/pk/",
         name: "pk_index",
         component: PkIndexView,
+        meta: {
+            requestAuth: true,
+        }
+    },
+    {
+        path: "/pk/al/",
+        name: "pk_al_index",
+        component: AlPkIndexView,
         meta: {
             requestAuth: true,
         }

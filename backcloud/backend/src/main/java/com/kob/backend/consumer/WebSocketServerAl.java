@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@ServerEndpoint("/websocketal/{token}")  // 注意不要以'/'结尾
+@ServerEndpoint("/websocket/al/{token}")  // 注意不要以'/'结尾
 public class WebSocketServerAl {
 
     final public static ConcurrentHashMap<Integer, WebSocketServerAl> users = new ConcurrentHashMap<>();
@@ -56,7 +56,7 @@ public class WebSocketServerAl {
     @OnOpen
     public void onOpen(Session session, @PathParam("token") String token) throws IOException {
         this.session = session;
-        System.out.println("connected!");
+        System.out.println("connected!" + "Al");
         Integer userId = JwtAuthentication.getUserId(token);
         this.user = userMapper.selectById(userId);
 
@@ -71,7 +71,7 @@ public class WebSocketServerAl {
 
     @OnClose
     public void onClose() {
-        System.out.println("disconnected!");
+        System.out.println("disconnected!" + " Al");
         if (this.user != null) {
             users.remove(this.user.getId());
         }
