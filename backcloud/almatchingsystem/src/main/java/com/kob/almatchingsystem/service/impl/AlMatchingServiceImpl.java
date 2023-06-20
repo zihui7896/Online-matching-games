@@ -16,10 +16,4 @@ public class AlMatchingServiceImpl implements AlMatchingService {
         return "success add player";
     }
 
-    @Override
-    public String removePlayer(Integer userId) {
-        matchingPool.removePlayer(userId);
-        System.out.println("success remove player " + userId + " almatching");
-        return "success remove player";
-    }
 }

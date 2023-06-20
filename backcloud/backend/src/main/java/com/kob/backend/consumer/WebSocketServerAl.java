@@ -34,7 +34,6 @@ public class WebSocketServerAl {
     public static RestTemplate restTemplate;
     public Game game = null;
     private final static String addPlaysUrl = "http://127.0.0.1:3003/player/add/";
-    private final static String removePlaysUrl = "http://127.0.0.1:3003/player/remove/";
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
         WebSocketServerAl.userMapper = userMapper;
@@ -116,22 +115,15 @@ public class WebSocketServerAl {
             users.get(b.getId()).sendMessage(respB.toJSONString());
     }
     private void startMatching(Integer botId) {
-        System.out.println("start matching!");
+        System.out.println("start matching!" + " al");
 
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("user_id", this.user.getId().toString());
-        data.add("rating", this.user.getRating().toString());
         data.add("bot_id", botId.toString());
         restTemplate.postForObject(addPlaysUrl, data, String.class);
 
     }
 
-    private void stopMatching() {
-        System.out.println("stop matching");
-        MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
-        data.add("user_id", this.user.getId().toString());
-        restTemplate.postForObject(removePlaysUrl, data, String.class);
-    }
 
     private void move(int direction) {
         if (game.getPlayerA().getId().equals(user.getId())) {
@@ -145,14 +137,12 @@ public class WebSocketServerAl {
 
     @OnMessage
     public void onMessage(String message, Session session) {  // 当做路由
-        System.out.println("receive message!");
+        System.out.println("receive message! + al");
         JSONObject data = JSONObject.parseObject(message);
         String event = data.getString("event");
         if ("start-matching".equals(event)) {
             startMatching(data.getInteger("bot_id"));
-        } else if ("stop-matching".equals(event)) {
-            stopMatching();
-        } else if ("move".equals(event)) {
+        }  else if ("move".equals(event)) {
             move(data.getInteger("direction"));
         }
     }

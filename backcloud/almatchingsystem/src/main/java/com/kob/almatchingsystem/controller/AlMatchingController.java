@@ -22,10 +22,4 @@ public class AlMatchingController {
         return alMatchingService.addPlayer(userId, botId);
     }
 
-    @PostMapping("/player/remove/")
-    public String removePlayer(@RequestParam MultiValueMap<String, String> data) {
-        Integer userId = Integer.parseInt(Objects.requireNonNull(data.getFirst("user_id")));
-
-        return alMatchingService.removePlayer(userId);
-    }
 }

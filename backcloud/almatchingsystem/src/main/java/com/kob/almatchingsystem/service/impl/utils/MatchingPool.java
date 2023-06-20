@@ -30,20 +30,6 @@ public class MatchingPool extends Thread{
             lock.unlock();
         }
     }
-    public void removePlayer(Integer userId) {
-        lock.lock();
-        try {
-            List<Player> newPlayers = new ArrayList<>();
-            for (Player player : players) {
-                if (!player.getUserId().equals(userId)) {
-                    newPlayers.add(player);
-                }
-            }
-            players = newPlayers;
-        } finally {
-            lock.unlock();
-        }
-    }
 //    private void increaseWaitingTime() {
 //        for (Player player : players) {
 //            player.setWaitingTime(player.getWaitingTime() + 1);
@@ -55,7 +41,7 @@ public class MatchingPool extends Thread{
 //        return ratingDelta <= waitingTime * 10;
 //    }
     private void sendResult(Player a, Player b) {
-        System.out.println("send result" + a + " " + b);
+        System.out.println("send result " + a + " " + b);
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("a_id", a.getUserId().toString());
         data.add("a_bot_id", a.getBotId().toString());
@@ -64,19 +50,15 @@ public class MatchingPool extends Thread{
         restTemplate.postForObject(startGameUrl, data, String.class);
     }
     private void matchPlayers() {
+
         boolean[] used = new boolean[players.size()];
         for (int i = 0; i < players.size(); i ++) {
-            if (used[i]) continue;
-            for (int j = i + 1; j < players.size(); j ++) {
-                if (used[j]) continue;
-                Player a = players.get(i), b = players.get(j);
-//                if (checkMatches(a, b) && !a.getUserId().equals(b.getUserId())) {
-//                    used[i] = used[j] = true;
-//                    sendResult(a, b);
-//                    break;
-//                }
-            }
+            used[i] = true;
+            Player a = players.get(i);
+            Player b = new Player(1, 1);
+            sendResult(b, a);
         }
+
         List<Player> newPlayers = new ArrayList<>();
         for (int i = 0; i < players.size(); i ++) {
             if (!used[i]) {
@@ -92,7 +74,6 @@ public class MatchingPool extends Thread{
                 Thread.sleep(1000);
                 lock.lock();
                 try {
-//                    increaseWaitingTime();
                     matchPlayers();
                 } finally {
                     lock.unlock();

@@ -29,7 +29,7 @@ export default {
         onMounted(() => {
             store.commit("updateOpponent", {
                 username: "我的对手",
-                photo: "https://cdn.acwing.com/media/article/image/2022/08/09/1_1db2488f17-anonymous.png",
+                photo: "https://th.bing.com/th/id/OIP.FovcUmdeC1AlDNWIW_w9rAAAAA?w=176&h=180&c=7&r=0&o=5&dpr=2&pid=1.7",
             })
             socket = new WebSocket(socketUrl);
 

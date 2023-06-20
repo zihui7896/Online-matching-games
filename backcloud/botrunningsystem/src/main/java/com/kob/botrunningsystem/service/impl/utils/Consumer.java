@@ -19,6 +19,7 @@ public class Consumer extends Thread {
     private static RestTemplate restTemplate;
     private final static String receiveBotMoveUrl = "http://127.0.0.1:3000/pk/receive/bot/move/";
 
+
     @Autowired
     public void setRestTemplate(RestTemplate restTemplate) {
         Consumer.restTemplate = restTemplate;
@@ -67,6 +68,8 @@ public class Consumer extends Thread {
         data.add("user_id", bot.getUserId().toString());
         data.add("direction", direction.toString());
 
+
         restTemplate.postForObject(receiveBotMoveUrl, data, String.class);
+
     }
 }
