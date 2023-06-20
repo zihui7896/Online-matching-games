@@ -41,10 +41,10 @@ export default {
             socket.onmessage = msg => {
                 const data = JSON.parse(msg.data);
                 if (data.event === "start-matching") {  // 匹配成功
-                    store.commit("updateOpponent", {
-                        username: data.opponent_username,
-                        photo: data.opponent_photo,
-                    });
+                    // store.commit("updateOpponent", {
+                    //     username: data.opponent_username,
+                    //     photo: data.opponent_photo,
+                    // });
                     setTimeout(() => {
                         store.commit("updateStatus", "playing");
                     }, 200);
