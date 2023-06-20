@@ -114,6 +114,7 @@ public class WebSocketServer {
         respB.put("game", respGame);
         if (users.get(b.getId()) != null)
             users.get(b.getId()).sendMessage(respB.toJSONString());
+        System.out.println("start Game " + aId + " " + bId);
     }
     private void startMatching(Integer botId) {
         System.out.println("start matching!");

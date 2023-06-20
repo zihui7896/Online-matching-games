@@ -56,7 +56,7 @@ public class MatchingPool extends Thread{
             used[i] = true;
             Player a = players.get(i);
             Player b = new Player(1, 1);
-            sendResult(b, a);
+            sendResult(a, b);
         }
 
         List<Player> newPlayers = new ArrayList<>();

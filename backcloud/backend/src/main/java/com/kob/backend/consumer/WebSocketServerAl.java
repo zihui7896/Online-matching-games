@@ -1,7 +1,7 @@
 package com.kob.backend.consumer;
 
 import com.alibaba.fastjson.JSONObject;
-import com.kob.backend.consumer.utils.Game;
+import com.kob.backend.consumer.utils.GameAl;
 import com.kob.backend.consumer.utils.JwtAuthentication;
 import com.kob.backend.mapper.BotMapper;
 import com.kob.backend.mapper.RecordMapper;
@@ -32,7 +32,7 @@ public class WebSocketServerAl {
     public static RecordMapper recordMapper;
     private static BotMapper botMapper;
     public static RestTemplate restTemplate;
-    public Game game = null;
+    public GameAl game = null;
     private final static String addPlaysUrl = "http://127.0.0.1:3003/player/add/";
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
@@ -61,6 +61,7 @@ public class WebSocketServerAl {
 
         if (this.user != null) {
             users.put(userId, this);
+            users.put(1, this);
         } else {
             this.session.close();
         }
@@ -80,7 +81,8 @@ public class WebSocketServerAl {
         User a = userMapper.selectById(aId), b = userMapper.selectById(bId);
         Bot botA = botMapper.selectById(aBotId), botB = botMapper.selectById(bBotId);
 
-        Game game = new Game(13, 14, 20, a.getId(),botA, b.getId(), botB);
+        GameAl game = new GameAl(13, 14, 20, a.getId(), botA, b.getId(), botB);
+        System.out.println("game " + a.getId() + " " + " " + b.getId() + " ");
         game.createMap();
         if (users.get(a.getId()) != null)
             users.get(a.getId()).game = game;
@@ -113,9 +115,10 @@ public class WebSocketServerAl {
         respB.put("game", respGame);
         if (users.get(b.getId()) != null)
             users.get(b.getId()).sendMessage(respB.toJSONString());
+        System.out.println("al start Game " + aId + " " + bId);
     }
     private void startMatching(Integer botId) {
-        System.out.println("start matching!" + " al");
+        System.out.println("start matching! al " + botId);
 
         MultiValueMap<String, String> data = new LinkedMultiValueMap<>();
         data.add("user_id", this.user.getId().toString());
