@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/backcloud.iml" filepath="$PROJECT_DIR$/backcloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/botrunningsystem/botrunningsystem.iml" filepath="$PROJECT_DIR$/botrunningsystem/botrunningsystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chat-server.iml" filepath="$PROJECT_DIR$/chat-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/matchingsystem/matchingsystem.iml" filepath="$PROJECT_DIR$/matchingsystem/matchingsystem.iml" />
     </modules>
   </component>

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="botrunningsystem" />
+        <module name="chat-server" />
         <module name="backend" />
         <module name="almatchingsystem" />
         <module name="matchingsystem" />
@@ -18,6 +19,7 @@
       <module name="backcloud" target="1.8" />
       <module name="backend" target="1.8" />
       <module name="botrunningsystem" target="1.8" />
+      <module name="chat-server" target="1.8" />
       <module name="matchingsystem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -26,6 +28,7 @@
       <module name="almatchingsystem" options="-parameters" />
       <module name="backend" options="-parameters" />
       <module name="botrunningsystem" options="-parameters" />
+      <module name="chat-server" options="-parameters" />
       <module name="matchingsystem" options="-parameters" />
     </option>
   </component>

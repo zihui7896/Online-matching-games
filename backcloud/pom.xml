@@ -8,6 +8,7 @@
         <module>botrunningsystem</module>
         <module>matchingsystem</module>
         <module>almatchingsystem</module>
+        <module>chat-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
