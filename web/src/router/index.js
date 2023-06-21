@@ -9,6 +9,8 @@ import RecordIndexView from '@/views/record/RecordIndexView'
 import UserBotIndexView from '@/views/user/bot/UserBotIndexView'
 import UserAccountLoginView from '@/views/user/account/UserAccountLoginView'
 import UserAccountRegisterView from '@/views/user/account/UserAccountRegisterView'
+import ChatView from '@/views/chat/ChatView'
+// import NameView from '@/views/chat/NameView'
 import store from '@/store/index'
 
 const routes = [
@@ -85,6 +87,22 @@ const routes = [
             requestAuth: false,
         }
     },
+    {
+        path: "/chat/",
+        name: "chat_index",
+        component: ChatView,
+        meta: {
+            requestAuth: false,
+        },
+    },
+    // {
+    //     path: "/name/",
+    //     name: "name_index",
+    //     component: NameView,
+    //     meta: {
+    //         requestAuth: false,
+    //     },
+    // },
     {
         path: "/404/",
         name: "404",

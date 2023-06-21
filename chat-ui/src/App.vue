@@ -6,7 +6,13 @@
   </router-view>
 </template>
 
-<script lang="ts" setup>
+import { defineComponent } from 'vue';
+import template from './template.html';
+import script from './script.js';
+import style from './style.css';
+
+
+<script>
 const handleBeforeUnload = () => {
   // 刷新页面，删除 session
   let name = sessionStorage.getItem("name");
@@ -15,12 +21,14 @@ const handleBeforeUnload = () => {
     sessionStorage.clear();
   }
 };
-window.addEventListener("beforeunload", handleBeforeUnload);
+export default {
+  setup() {
+    window.addEventListener("beforeunload", handleBeforeUnload);
+  },
+};
 </script>
 
-<style lang="scss">
-html,
-body,
+<style>
 #app {
   width: 100%;
   height: 100%;
